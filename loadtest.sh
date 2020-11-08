@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SERVICE_URL=$(minikube service --url example-chart)
+SERVICE_URL=$(minikube service --url rust-service)
 
 CALC=1\/
 FORMULA=$CALC${RPS:-1}

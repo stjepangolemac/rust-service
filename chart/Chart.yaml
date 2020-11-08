@@ -1,5 +1,5 @@
 apiVersion: v2
-name: chart
+name: rust-service
 description: A Helm chart for Kubernetes
 
 type: application

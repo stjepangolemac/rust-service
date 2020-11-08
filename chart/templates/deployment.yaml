@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: {{ include "chart.fullname" . }}
   labels:
-    app: example-service
+    app: rust-service
 spec:
   selector:
     matchLabels:
-      app: example-service
-  replicas: {{ .Values.replicaCount }}
+      app: rust-service
+  replicas: 1
   template:
     metadata:
       labels:
-        app: example-service
+        app: rust-service
     spec:
       containers:
         - name: {{ .Chart.Name }}

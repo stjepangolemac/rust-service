@@ -1,5 +1,5 @@
 [package]
-name = "example-service"
+name = "rust-service"
 version = "0.1.0"
 authors = ["Stjepan Golemac <stjepan@tray.io>"]
 edition = "2018"

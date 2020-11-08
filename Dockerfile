@@ -12,6 +12,6 @@ FROM ubuntu
 
 WORKDIR /app
 
-COPY --from=builder /app/target/release/example-service .
+COPY --from=builder /app/target/release/rust-service .
 
-CMD ["./example-service"] 
+CMD ["./rust-service"] 
