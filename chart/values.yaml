@@ -1,0 +1,6 @@
+replicaCount: 1
+
+image:
+  repository: stjepangolemac/example-service
+  tag: latest
+  imagePullPolicy: Always

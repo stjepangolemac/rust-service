@@ -1,0 +1,26 @@
+use actix_web::{web, App, HttpRequest, HttpServer, Responder};
+
+async fn greet(req: HttpRequest) -> impl Responder {
+    let name = req.match_info().get("name").unwrap_or("World");
+
+    let mut foo = 0f64;
+    for i in 0..10000000 {
+        foo += (i as f64).sqrt();
+    }
+
+    println!("{}", foo);
+
+    format!("Hello {}!", &name)
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new()
+            .route("/", web::get().to(greet))
+            .route("/{name}", web::get().to(greet))
+    })
+    .bind("0.0.0.0:8080")?
+    .run()
+    .await
+}

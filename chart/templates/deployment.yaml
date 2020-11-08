@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "chart.fullname" . }}
+  labels:
+    app: example-service
+spec:
+  selector:
+    matchLabels:
+      app: example-service
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: example-service
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          resources:
+            limits:
+              cpu: "250m"
+            requests:
+              cpu: "250m"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - containerPort: 8080
